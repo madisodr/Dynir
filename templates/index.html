@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            .colors {
+            }
+
+            .images{
+                display: inline-block;
+                border: 1px solid black;
+            }
+            .image {
+                float: left;
+                padding: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="content">
+            {% for img in images %}
+                <div class="images">
+                    <div class="colors">Extracted Dominant Colors: {{ img.colors }}</div>
+                    {% for size in sizes %}
+                        <img class="image" src="http://127.0.0.1:8000/resizer/{{ img.image }}_{{ size }}.jpg" alt="Image404">
+                    {% endfor %}
+                    <img class="image" src="http://127.0.0.1:8000/resizer/{{ img.image }}_500.png" alt="Image404">
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
